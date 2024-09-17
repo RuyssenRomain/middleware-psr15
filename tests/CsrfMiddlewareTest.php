@@ -10,7 +10,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class CsrfMiddlewareTest extends TestCase {
 
-    private function makeMiddleware( array &$session = []){
+    private function makeMiddleware(&$session = []){
         return new CsrfMiddleware($session);
     }
 
@@ -29,8 +29,7 @@ class CsrfMiddlewareTest extends TestCase {
         $middlewareA = new CsrfMiddleware($a);
         $middlewareB = new CsrfMiddleware($b);
         $this->assertInstanceOf(CsrfMiddleware::class, $middlewareA);
-        $this->assertInstanceOf(CsrfMiddleware::class, $middlewareB);
-        
+        $this->assertInstanceOf(CsrfMiddleware::class, $middlewareB);     
     }
 
     public function testAcceptInValidSession () {
@@ -39,9 +38,13 @@ class CsrfMiddlewareTest extends TestCase {
         $middlewareB = new CsrfMiddleware($b);
 
         $this->assertInstanceOf(CsrfMiddleware::class, $middlewareA);
-        $this->assertInstanceOf(CsrfMiddleware::class, $middlewareB);
-    
-        
+        $this->assertInstanceOf(CsrfMiddleware::class, $middlewareB);     
+    }
+
+    public function testRejectInvalidSession () {
+        $this->expectException(\TypeError::class);
+        $a = new \stdClass();
+        $middlewareA = $this->makeMiddleware($a);
     }
 
     private function makeResponse()

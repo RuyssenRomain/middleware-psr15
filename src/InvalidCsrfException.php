@@ -1,4 +1,7 @@
 <?php
 namespace Grafikart\Csrf;
 
-class InvalidCsrfException extends \Exception {}
+class InvalidCsrfException extends \Exception 
+{
+    
+}
