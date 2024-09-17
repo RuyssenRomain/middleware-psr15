@@ -1,0 +1,17 @@
+# Ignorer le dossier vendor (dépendances de Composer)
+vendor/
+
+# Ignorer les fichiers de log ou de cache
+*.log
+.cache/
+
+# Ignorer les fichiers de configuration IDE comme PHPStorm ou VSCode
+.idea/
+.vscode/
+
+# Ignorer les fichiers PHPUnit
+phpunit.xml
+phpunit.xml.dist
+
+# Ignorer le fichier lock de Composer si nécessaire (souvent on le garde)
+# composer.lock

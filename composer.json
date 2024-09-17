@@ -1,0 +1,21 @@
+{
+    "name": "ruyss/php-middleware",
+    "description": "cours on middleware",
+    "autoload": {
+        "psr-4": {
+            "Grafikart\\Csrf\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ruyssen Romain",
+            "email": "ruyssensud@gmail.com"
+        }
+    ],
+    "require": {
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    }
+}
